@@ -1,10 +1,10 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Illustration for InteractPLSPM Prime package                            %
+% Illustration for PLSPM.Interact_Prime package                           %
 %   Author: Heungsun Hwang & Gyeongcheol Cho                              %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Description:                                                            %
-%   - This code aims to illustrate how to use InteractPLSPM Prime package.%
-%   - The dataset is generated from the model used in Shen, Cho, and Hwang%
+%  - This code aims to illustrate how to use PLSPM.Interact_Prime package.%
+%  - The dataset is generated from the model used in Shen, Cho, and Hwang %
 %     (under review).                                                     %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % References                                                              %
