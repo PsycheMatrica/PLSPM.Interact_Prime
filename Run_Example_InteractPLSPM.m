@@ -1,11 +1,11 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Illustration for PLSPM.Interact_Prime package                           %
-%   Author: Heungsun Hwang & Gyeongcheol Cho                              %
+%   Author: Gyeongcheol Cho & Heungsun Hwang                              %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Description:                                                            %
 %  - This code aims to illustrate how to use PLSPM.Interact_Prime package.%
 %  - The dataset is generated from the model used in Shen, Cho, and Hwang %
-%     (under review).                                                     %
+%     (2025).                                                             %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % References                                                              %
 %     * Chin, W. W., Marcolin, B. L., & Newsted, P. R. (2003). A Partial  %
@@ -14,9 +14,11 @@
 %         and an Electronic-Mail Emotion/Adoption Study. Information      %
 %         Systems Research, 14(2), 189–217.                               %
 %         https://doi.org/10.1287/isre.14.2.189.16018                     %
-%     * Shen, Z., Cho, G., & Hwang, H. (under review)  Comparison of      %
-%         component-based structural equation modeling methods in testing %
-%         component interaction effects.                                  %
+%     * Shen, Z., Cho, G., & Hwang, H. (2025). Comparison of              %
+%       Component-Based Structural Equation Modeling Methods in Testing   %
+%       Component Interaction Effects. Structural Equation Modeling: A    %
+%       Multidisciplinary Journal, 1–13.                                  %
+%       https://doi.org/10.1080/10705511.2025.2497088                     %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% Preparation
@@ -42,7 +44,11 @@ Flag_Parallel=false;
 Max_iter = 100; 
 Min_limit = .00001;
 
-[INI, TABLE, ETC] = InteractPLSPM(z0, W0, B0, modetype, scheme, nnlv_index, ind_sign, N_Boot, Max_iter, Min_limit, Flag_Parallel);
+Results = InteractPLSPM(z0, W0, B0, modetype, scheme, nnlv_index, ind_sign, N_Boot, Max_iter, Min_limit, Flag_Parallel);
+INI=Results.INI;
+TABLE=Results.TABLE;
+ETC=Results.ETC;
+ 
 INI.W 
 INI.C
 INI.B 

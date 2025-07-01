@@ -1,7 +1,7 @@
 # PLSPM.Interact_Prime
 
 ### Author:
-Heungsun Hwang and Gyeongcheol Cho
+Gyeongcheol Cho & Heungsun Hwang 
 
 ## Description:
 - The **PLSPM.Interact_Prime** package enables users to estimate and evaluate basic PLSPM models.
@@ -33,5 +33,5 @@ To use this package in MATLAB:
 - If you use **PLSPM.Interact_Prime** in your research or publications, please cite it in APA format as follows:
 
 ```plaintext
-Hwang, H. & Cho, G. (2024). PLSPM.Interact_Prime: A package for partial least squares path modeling with construct interactions [Computer software]. GitHub. https://github.com/PsycheMatrica/PLSPM.Interact_Prime
+Cho, G. & Hwang, H. & (2024). PLSPM.Interact_Prime: A package for partial least squares path modeling with construct interactions [Computer software]. GitHub. https://github.com/PsycheMatrica/PLSPM.Interact_Prime
 ```

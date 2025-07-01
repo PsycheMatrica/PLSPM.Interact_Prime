@@ -1,8 +1,8 @@
-function [INI,TABLE,ETC] = InteractPLSPM(z0, W0, B02, modetype, scheme, nnlv_index, ind_sign, N_Boot, Max_iter, Min_limit, Flag_Parallel)
+function Results = InteractPLSPM(z0, W0, B02, modetype, scheme, nnlv_index, ind_sign, N_Boot, Max_iter, Min_limit, Flag_Parallel)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% InteractPLSPM() - MATLAB function to perform a basic version of Partial     %
+% InteractPLSPM() - MATLAB function to perform a basic version of Partial %
 %               Least Sqaures Path Modeling  (PLSPM).                     %
-% Author: Heungsun Hwang & Gyeongcheol Cho                                %
+% Author: Gyeongcheol Cho & Heungsun Hwang &                              %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Input arguments:                                                        %
 %   Data = an N by J matrix of scores for N individuals on J indicators   %
@@ -23,7 +23,11 @@ function [INI,TABLE,ETC] = InteractPLSPM(z0, W0, B02, modetype, scheme, nnlv_ind
 %   Flag_Parallel = Logical value to determine whether to use parallel    %
 %                   computing for bootstrapping                           %
 % Output arguments:                                                       %
-%   INI: Structure array containing goodness-of-fit values, R-squared     % 
+%   Results: Structure array containing (1) results from the original     %
+%       sample (INI); (2) summary tables with standard errors and         %
+%       confidence intervals (TABLE); and (3) bootstrap estimates for     %
+%       various parameter sets (ETC).                                     %
+%   .INI: Structure array containing goodness-of-fit values, R-squared    % 
 %        values, and matrices parameter estimates                         %
 %     .Converge = Logical value indicating whether the ALS algorithm      %
 %                 converges within the maximum number of iterations       %
@@ -32,12 +36,12 @@ function [INI,TABLE,ETC] = InteractPLSPM(z0, W0, B02, modetype, scheme, nnlv_ind
 %     .C: a P by J matrix of loading estimates                            %
 %     .B: a P by P matrix of path coefficient estimates                   %
 %     .CVscore: an N by P matrix of component scores                      % 
-%  TABLE: Structure array containing tables of parameter estimates, their %
+%  .TABLE: Structure array containing tables of parameter estimates, their%
 %         SEs, 95% CIs,and other statistics                               %
 %     .W: Table for weight estimates                                      %
 %     .C: Table for loading estimates                                     %
 %     .B: Table for path coefficients estimates                           %
-%  ETC: Structure array including bootstrapped parameter estmates         %
+%  .ETC: Structure array including bootstrapped parameter estmates        %
 %     .W_Boot: Matrix of bootstrapped weight estimates                    %
 %     .C_Boot: Matrix of bootstrapped loading estimates                   %
 %     .B_Boot: Matrix of bootstrapped path coefficient estimates          %
@@ -122,6 +126,9 @@ else
    ETC.C_Boot=C_Boot;
    ETC.B_Boot=B_Boot;    
 end
+Results.INI=INI;
+Results.TABLE=TABLE;
+Results.ETC=ETC;
 end
 function Table=para_stat(est_mt,boot_mt,CI_mp)
    boot_mt=sort(boot_mt,2);
