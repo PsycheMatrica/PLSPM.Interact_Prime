@@ -1,8 +1,8 @@
-function Results = InteractPLSPM(z0, W0, B02, modetype, scheme, nnlv_index, ind_sign, N_Boot, Max_iter, Min_limit, Flag_Parallel)
+function Results = PLSPM_Interact(z0, W0, B02, modetype, scheme, nnlv_index, ind_sign, N_Boot, Max_iter, Min_limit, Flag_Parallel)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% InteractPLSPM() - MATLAB function to perform a basic version of Partial %
+% PLSPM_Interact() - MATLAB function to perform a basic version of Partial%
 %               Least Sqaures Path Modeling  (PLSPM).                     %
-% Author: Gyeongcheol Cho & Heungsun Hwang &                              %
+% Author: Gyeongcheol Cho & Heungsun Hwang                                %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Input arguments:                                                        %
 %   Data = an N by J matrix of scores for N individuals on J indicators   %
@@ -77,7 +77,7 @@ B02=B02~=0; Nb=sum(sum(B02,1),2);
 B0=B02(1:P,:);
 ind_Bdep=sum(B02,1)>0; Py = sum(ind_Bdep,2);
 
-[est_W, est_C, est_B, it,Converge, est_Gamma] = ALS_InteractPLSPM(z0,W0,B0,B02,modetype,scheme,nnlv_index,ind_sign,Max_iter,Min_limit,N,J,P);
+[est_W, est_C, est_B, it,Converge, est_Gamma] = ALS_PLSPM_Interact(z0,W0,B0,B02,modetype,scheme,nnlv_index,ind_sign,Max_iter,Min_limit,N,J,P);
 INI.Converge=Converge;
 INI.iter = it;
 INI.W = est_W;
@@ -99,7 +99,7 @@ else
    if Flag_Parallel
        parfor b=1:N_Boot
            Z_ib=GC_Boot(z0);
-           [W_b,C_b,B_b,~,~,~]= ALS_InteractPLSPM(Z_ib,W0,B0,B02,modetype,scheme,nnlv_index,ind_sign,Max_iter,Min_limit,N,J,P);     
+           [W_b,C_b,B_b,~,~,~]= ALS_PLSPM_Interact(Z_ib,W0,B0,B02,modetype,scheme,nnlv_index,ind_sign,Max_iter,Min_limit,N,J,P);     
            W_Boot(:,b)=W_b(W0);
            C_Boot(:,b)=C_b(C0);
            B_Boot(:,b)=B_b(B02);
@@ -108,7 +108,7 @@ else
        for b=1:N_Boot
            if rem(b,100)==1; fprintf("Bootstrapping %d\n", b); end
            Z_ib=GC_Boot(z0);
-           [W_b,C_b,B_b,~,~,~]= ALS_InteractPLSPM(Z_ib,W0,B0,B02,modetype,scheme,nnlv_index,ind_sign,Max_iter,Min_limit,N,J,P);     
+           [W_b,C_b,B_b,~,~,~]= ALS_PLSPM_Interact(Z_ib,W0,B0,B02,modetype,scheme,nnlv_index,ind_sign,Max_iter,Min_limit,N,J,P);     
            W_Boot(:,b)=W_b(W0);
            C_Boot(:,b)=C_b(C0);
            B_Boot(:,b)=B_b(B02);

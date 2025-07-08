@@ -44,7 +44,7 @@ Flag_Parallel=false;
 Max_iter = 100; 
 Min_limit = .00001;
 
-Results = InteractPLSPM(z0, W0, B0, modetype, scheme, nnlv_index, ind_sign, N_Boot, Max_iter, Min_limit, Flag_Parallel);
+Results = PLSPM_Interact(z0, W0, B0, modetype, scheme, nnlv_index, ind_sign, N_Boot, Max_iter, Min_limit, Flag_Parallel);
 INI=Results.INI;
 TABLE=Results.TABLE;
 ETC=Results.ETC;

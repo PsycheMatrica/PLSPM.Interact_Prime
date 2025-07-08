@@ -1,6 +1,6 @@
-function [WT, LD, Path,it,Flag_Converge, Gamma] = ALS_InteractPLSPM(z0,W0,B0,B02,modetype,scheme,nnlv_index,ind_sign,Max_iter,Min_limit,N,J,P)
+function [WT, LD, Path,it,Flag_Converge, Gamma] = ALS_PLSPM_Interact(z0,W0,B0,B02,modetype,scheme,nnlv_index,ind_sign,Max_iter,Min_limit,N,J,P)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% ALS_InteractPlSPM() - MATLAB function to implement the ALS algorithm for%
+% ALS_PlSPM_Interact() - MATLAB function to implement the ALS algorithm for%
 %                Partial Least Squares Path Modeling (PLSPM) with latent  %
 %                interactions.                                            % 
 % Author: Heungsun Hwang & Gyeongcheol Cho                                % 
